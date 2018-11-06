@@ -1,0 +1,132 @@
+<% include partials/header.ejs %>
+      
+            <div class="moviebox">
+               
+                        <div class="row">
+                              <div class="col-lg-4 col-md-6 col-lg-6">
+                                          <img src="https://image.tmdb.org/t/p/w500<%= item.poster_path %>" alt="" style="width: 100%">
+                              </div>
+                              <!-- <div class="col-md-8 backimg">
+                                    <div id="mydiv"> <img src="https://image.tmdb.org/t/p/w500<%= item.backdrop_path %>" style="position: relative;">
+                                    </div>
+                              </div> -->
+                              <div class="col-md-4 col-lg-6">
+                                          <h1>
+                                                <%= item.title %>
+                                           
+                                          </h1>
+                                          <h2>Release Date :
+                                                <%= item.release_date %>
+                                          </h2>
+                                          <h3>Overview</h3>
+                                          <p class="overview" style="font-size:1.5em">
+                                                      <%= item.overview %>
+                                                </p>
+                                                <h3>User score-<%= item.vote_average %>/10</h3>
+                                          <form action="/addtvtolist" method="POST"> 
+                                                <input name="tv" value="<%= item.id %>" style="display: none">
+                                                <button style="background: black">Add to watchlist</button>
+                                                
+                                               </form>
+                                    </div>
+                           
+
+
+                        </div>
+                  </div>
+
+
+            </div>
+<% if(trailer.results.length==0){ %>
+
+<% }else{ %>
+      <div class="pp">
+            <div class="trailer-box">
+           
+                 <% if(item.id==1399){ %>
+                  
+                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/<%= trailer.results[1].key %>?start=5" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  <% }else{ %>
+                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/<%= trailer.results[0].key %>?start=5" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+             
+
+                  <% } %>
+                    
+            </div>
+            </div>
+<% } %>
+           
+
+<div class="container">
+
+      
+            <h1 class="cast-name" style="padding-left: 38%">Cast And Crew</h1>
+            <div class="p">
+                        <div class="row" style="display: flex; flex-wrap: wrap">
+                            
+                  <% casts.credits.cast.forEach(function(cast){ %>
+                    <% if(cast.profile_path==null){ %>
+                            
+                                   <% } else{ %>
+                                    <div class="col-sm-6 col-md-3 col-lg-3">
+
+                                                <form action="/getpeople" method="POST">
+
+                                                      <input type="image" name="personName" value="<%= cast.id %>" src="https://image.tmdb.org/t/p/w500<%= cast.profile_path %>"
+                                                            style="width: 100%">
+                                                      <h3 class="cast-name" style="text-align: center">
+                                                            <%= cast.name %>
+                                                      </h3>
+                                                </form>
+                                          </div>
+                              <% } %>
+                   <%  })  %>
+                  </div>
+                  </div>
+
+
+
+
+                  <% if(reviews.results.length==0){ %>
+
+                        <% }else{ %>
+                              <h2 class="rev cast-name" style="padding-left: 40%">Reviews</h2>
+                       <% } %>
+                        
+            <div class="review-box">
+                       
+                  <% reviews.results.forEach(function(review) { %>
+                        
+                        <div class="review col-sm-6 col-md-8 col-lg-10">
+                                    
+                              <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                          <h3 class="panel-title rev">
+                                                <%= review.author %>
+                                          </h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p class="rev"> <%= review.content %></p> 
+                                    </div>
+                              </div>
+                        </div>
+                        <% }) %>
+
+            </div>
+
+
+
+            <style>
+                        .panel-body {
+                              color: white;
+                              background-color: black;
+                        }
+                  </style>
+            
+           
+
+           
+
+          
+
+            <% include partials/footer1.ejs %>

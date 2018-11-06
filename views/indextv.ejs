@@ -1,0 +1,40 @@
+<% include partials/header.ejs %>
+
+<div class="a">
+  <div class="container">
+        <h1 class="mt-name"><%= myhead %></h1>
+        <div class="p">
+      <div class="row" style="display: flex; flex-wrap: wrap">
+<% shows.results.forEach(function(show){ %>
+  <% if(show.poster_path==null){ %>
+          
+                 <% } else{ %>
+                  <div class="col-sm-6 col-md-4 col-lg-4">
+                    
+                    
+                      <form action="/get-tv" method="POST">
+                 
+                  <input type="image" name="showname" value="<%= show.id %>"  src="https://image.tmdb.org/t/p/w500<%= show.poster_path %>" style="width: 100%">
+                      <h3 class="mt-name" style="text-align: center"><%= show.name %></h3>
+                     
+                
+                
+                    </form>
+                  
+                    
+                       
+
+                 
+
+
+
+            
+            
+            </div>
+            <% } %>
+ <%  })  %>
+</div>
+</div>
+</div>
+</div>
+<% include partials/footer.ejs %>

@@ -1,0 +1,121 @@
+<% include partials/header1 %>
+     
+     <div class="row">
+        <h1 style="color: white">Welcome <%= name %> !</h1>
+          <div class="col-md-4">
+
+
+<img src="assets/pic.jpg">
+
+
+
+          </div>
+          <div class="col-md-8">
+
+
+              <h3 class="mt-name">Your Username:    <%= Username %></h3>
+              <h3 class="mt-name">Your Email:    <%= email %></h3>
+              
+              
+              
+                        </div>
+         
+  
+        </div>
+<% if(watchlist.length==0 && shows.length==0){ %>
+    <h1 style="color: white">Your WatchList is Empty. Start Adding Now!</h1>
+<% }else{ %>
+
+
+
+
+        <h1 style="color: white">Your WatchList</h1>
+       
+            
+             
+                                   <% if(watchlist.length==0){ %>
+                                       
+                                    <% }else{ %>
+                                        <h1 style="color:white; width:20%; margin:auto ;margin-top:30px">Movies</h1>
+                                        <div class="p">
+                                            <div class="row" style="display: flex; flex-wrap: wrap">
+                                                
+                                                    <% watchlist.forEach(function(wish){ %>
+          
+                                                        <% if(wish.poster_path==null){ %>
+                                        
+                                                            <% } else{ %>
+                                                        <div class="col-sm-6 col-md-4 col-lg-4">
+                                                          
+                                                          
+                                                            <form action="/getmov" method="POST">
+                                                             
+                                                              <input type="image" name="movnm" value="<%= wish.id %>"  src="https://image.tmdb.org/t/p/w500<%= wish.poster_path %>" style="width: 100%">
+                                                    
+                                                      
+                                                            <h3 class="mt-name"><%= wish.title %></h3>
+                                                           
+                                                 
+                                                          </form>
+                                                        
+                                                         
+                                                             
+                                      
+                                                       
+                                      
+                                      
+                                      
+                                                  
+                                                    
+                                                  </div>
+                                                  <% } %>
+                                       <%  })  %>
+                                      </div>
+                                      </div>
+                                    <% } %>
+                                 <%  } %>
+        
+                                 
+    
+ <% if(shows.length==0){ %>
+
+ <% }else{ %>
+    <h1 style="color:white; width:20%; margin:auto; margin-top: 40px;">Tv Shows</h1>
+    <div class="p">
+            <div class="row" style="display: flex; flex-wrap: wrap">
+      <% shows.forEach(function(show){ %>
+        <% if(show.poster_path==null){ %>
+                
+                       <% } else{ %>
+                        <div class="col-sm-6 col-md-4 col-lg-4">
+                          
+                          
+                            <form action="/get-tv" method="POST">
+                       
+                        <input type="image" name="showname" value="<%= show.id %>"  src="https://image.tmdb.org/t/p/w500<%= show.poster_path %>" style="width: 100%">
+                            <h3 class="mt-name"><%= show.name %></h3>
+                           
+                      
+                      
+                          </form>
+                        
+                          
+                             
+      
+                       
+      
+      
+      
+                  
+                  
+                  </div>
+                  <% } %>
+       <%  })  %>
+      </div>
+      </div>
+
+  <% } %>
+                           
+  
+  
+        <% include partials/footer1 %>

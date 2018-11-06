@@ -1,0 +1,176 @@
+
+img.thumbnail{
+
+  width: 100%;
+ 
+}
+.down{
+background-color: black;
+width: 100%;
+margin-bottom: 0; 
+position: absolute;
+
+}
+.sel1{
+width: 100%;
+    
+}
+.button{
+
+    background-color:black;
+    color: white;
+    margin-left: 20px;
+    margin-bottom: 50px;
+    
+}
+.button:hover{
+    background-color: gray;
+ 
+}
+
+
+.infobtn{
+width:50%;
+margin:10px auto;
+
+}
+.moviebox{
+
+margin-top:40px;
+width: 100%;
+margin-left: 0px;
+margin-right: 0px;
+color: white
+}
+#mydiv{
+opacity: 0.4;
+height:100%;
+width:100%;
+margin: auto;
+margin-top:7%;
+
+}
+.trailer-box{
+
+width:80%;
+height: 50%;
+margin-top:100px;
+margin-left:auto;
+margin-right: auto;
+
+
+
+}
+.pp{
+    background: #e52d27;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #b31217, #e52d27);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    
+margin:0;
+padding:0;
+}
+.textinbox{
+ 
+position: absolute; /* To place the text on the image*/
+top: 200px; /* The exact location of the text from the top of the image*/
+left: 100px;; /* Other beautification stuff */
+width: 100%;
+color:white; 
+}
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+    background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+    background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+    background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+    }
+   #myinp{
+       width: 80%;
+       margin-left: 15%;
+   }
+  .rev{
+
+    font-family: 'Roboto', sans-serif;
+  
+
+  }
+  .review-box{
+
+ margin-top:20px;
+
+  }
+ .castimg{
+
+
+    
+    width:283px;
+ }
+ .divtext {
+    margin-left: 550px;
+}
+.overview {
+    width: 100%
+}
+.review
+{
+    margin-left: 8%
+}
+.p{
+
+    margin-top: 20px;
+}
+.cast-name{
+
+color: white;
+margin-top:30px;
+}
+.mt-name{
+    
+    color: white;
+   
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+.disbox{
+
+
+    margin-top:60px;
+}
+.formdiv{
+
+    width: 100%;
+}
+#bt{
+    padding-left:8%;
+    width: 50%;
+    margin: auto;
+}
+.Dis-search{
+
+margin-left:20%
+
+}
+.myhead{
+
+    width:30%;
+    margin: auto;
+    color: white;
+}
+.submitsearch{
+    background: transparent;
+  
+
+    color: #fff;
+    background: gray;
+ 
+    cursor: pointer;
+    
+ 
+
+  }
+  

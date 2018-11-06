@@ -1,0 +1,239 @@
+<% include partials/header1 %>
+
+    <% if(success_msg){ %>
+      <div class="alert alert-success"><%= success_msg %></div> 
+       <% } else if(error_msg){ %>  
+         <div class="alert alert-warning"><%= error_msg %></div>
+       <% } else if(error){ %> 
+         <div class="alert alert-danger"><%= error %></div>
+      <% } %>
+      
+  <% if(error){ %>
+
+    <% error.forEach(function(err){ %>
+
+      <div class="alert alert-danger">
+        <%= err.msg %>
+      </div>
+
+
+      <% }) %>
+
+
+        <% } %>
+
+
+            <div class="owl">
+              <div class="hand"></div>
+              <div class="hand hand-r"></div>
+              <div class="arms">
+                <div class="arm"></div>
+                <div class="arm arm-r"></div>
+              </div>
+            </div>
+            
+            <div class="stadiv">
+              <div class="box">
+                
+                <h2>SignUp</h2>
+
+                <form method="post" action="/users/register">
+
+                  <div class="form-group inputbox">
+                    <input type="text" name="name" required>
+                    <label>Name</label>
+                  </div>
+
+                  <div class="form-group inputbox">
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                  </div>
+
+                  <div class="form-group inputbox">
+                    <input type="text" name="email" required>
+                    <label>Email</label>
+                  </div>
+
+                  <div class="form-group inputbox">
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                  </div>
+
+                  <div class="form-group inputbox">
+                      <input type="password" name="cpassword" required>
+                      <label>Confirm Password</label>
+                    </div>
+
+                  <input type="submit" name="" value="Submit">
+
+                </form>
+
+              </div>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+            <script>
+              'use strict';
+
+              $('input[type="password"]').on('focus', function () {
+                $('*').addClass('password');
+              }).on('focusout', function () {
+                $('*').removeClass('password');
+              });;
+
+            </script>
+
+            <style>
+              @import url("https://fonts.googleapis.com/css?family=Roboto");
+
+              @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+
+              .stadiv {
+                position: relative;
+                margin-top: 302px;
+                margin-bottom: 600px;
+              }
+
+              .owl {
+                margin: auto;
+                
+               
+                width: 211px;
+                height: 108px;
+                background-image: url("/assets/owl.png");
+                position: relative;
+              }
+
+              .owl .hand {
+                width: 34px;
+                height: 34px;
+                border-radius: 40px;
+                background-color: #472d20;
+                transform: scaleY(0.6);
+                position: absolute;
+                left: 14px;
+                bottom: -8px;
+                transition: 0.3s ease-out;
+              }
+
+              .owl .hand.password {
+                transform: translateX(42px) translateY(-15px) scale(0.7);
+              }
+
+              .owl .hand.hand-r {
+                left: 170px;
+              }
+
+              .owl .hand.hand-r.password {
+                transform: translateX(-42px) translateY(-15px) scale(0.7);
+              }
+
+              .owl .arms {
+                position: absolute;
+                top: 58px;
+                height: 41px;
+                width: 100%;
+                overflow: hidden;
+              }
+
+              .owl .arms .arm {
+                width: 40px;
+                height: 65px;
+                background-image: url("/assets/owlArm.png");
+                position: absolute;
+                left: 20px;
+                top: 40px;
+                transition: 0.3s ease-out;
+              }
+
+              .owl .arms .arm.password {
+                transform: translateX(40px) translateY(-40px);
+              }
+
+              .owl .arms .arm.arm-r {
+                left: 158px;
+                transform: scaleX(-1);
+              }
+
+              .owl .arms .arm.arm-r.password {
+                transform: translateX(-40px) translateY(-40px) scaleX(-1);
+              }
+
+              body {
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+                background-color: slateblue;
+                background-size: cover;
+              }
+
+              .box {
+                position: absolute;
+                top: 58%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 400px;
+                padding: 40px;
+                background: rgba(0, 0, 0, .8);
+                box-sizing: border-box;
+                box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+                border-radius: 10px;
+              }
+
+              .box h2 {
+                margin: 0 0 30px;
+                padding: 0;
+                color: #fff;
+                text-align: center;
+              }
+
+              .box .inputbox {
+                position: relative;
+              }
+
+              .box .inputbox input {
+                width: 100%;
+                padding: 10px 0;
+                font-size: 16px;
+                color: #fff;
+                letter-spacing: 1px;
+                margin-bottom: 30px;
+                border: none;
+                border-bottom: 1px solid #fff;
+                outline: none;
+                background: transparent;
+              }
+
+              .box .inputbox label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                letter-spacing: 1px;
+                padding: 10px 0;
+                font-size: 16px;
+                color: #fff;
+                pointer-events: none;
+                transition: .5s;
+              }
+
+              .box .inputbox input:focus~label,
+              .box .inputbox input:valid~label {
+                top: -18px;
+                left: 0;
+                color: #03a9f4;
+                font-size: 12px;
+              }
+
+              .box input[type="submit"] {
+                background: transparent;
+                border: none;
+                outline: none;
+                color: #fff;
+                background: #03a9f4;
+                padding: 10px 20px;
+                cursor: pointer;
+                border-radius: 5px;
+              }
+            </style>
+
+            <% include partials/loginFooter.ejs %>

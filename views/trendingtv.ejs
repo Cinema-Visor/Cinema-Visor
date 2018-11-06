@@ -1,0 +1,99 @@
+<% include partials/header.ejs %>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <% shows.results.forEach(function(show){ %>
+                <% if(show.poster_path==null){ %>
+                    <% } else{ %>
+                        <div class="swiper-slide">
+                            <div>
+                                <form action="/get-tv" method="POST">
+                                    <input type="image" name="showname" value="<%= show.id %>" src="https://image.tmdb.org/t/p/w500<%= show.poster_path %>" alt=""
+                                        style="height: 100%; width: 100%">
+                                </form>
+                            </div>
+                            <div class="details">
+                                <h3>
+                                    <%= show.name %>
+                                        <br>
+                                </h3>
+                            </div>
+                        </div>
+                        <% } %>
+                            <%  })  %>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <style>
+        body {
+            background: #fff;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            /* background-color: black; */
+        }
+
+        .swiper-container {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 500px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .details {
+
+            text-align: center;
+            font-size: 15px;
+            font-weight: bolder;
+            font-family: 'Times New Roman', Times, serif;
+            overflow: hidden;
+            padding: 0px;
+        }
+
+        .details h3 {
+            color: white;
+        }
+    </style>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            mousewheel: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            coverflowEffect: {
+                rotate: 60,     //rotation
+                stretch: 0,
+                depth: 500,     //Depth
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+
+    <% include partials/footer.ejs %>

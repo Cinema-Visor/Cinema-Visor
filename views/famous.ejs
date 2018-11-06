@@ -1,0 +1,27 @@
+<% include partials/header.ejs %>
+    <div class="a">
+        <div class="container">
+            <h1 class="mt-name">Popular People</h1>
+            <div class="p">
+                <div class="row" style="display: flex; flex-wrap: wrap">
+                    <% people.results.forEach(function(person){ %>
+                        <% if(person.profile_path==null){ %>
+                            <% } else{ %>
+                                <div class="col-sm-6 col-md-4 col-lg-3">
+                                    <form action="/getpeople" method="POST">
+                                        <!-- change in these lines  -->
+                                        <input type="image" name="personName" value="<%= person.id %>" src="https://image.tmdb.org/t/p/w500<%= person.profile_path %>"
+                                            style="width: 100%">
+
+                                        <h3 class="mt-name">
+                                            <%= person.name %>
+                                        </h3>
+                                    </form>
+                                </div>
+                                <% } %>
+                                    <%  })  %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% include partials/footer.ejs %>

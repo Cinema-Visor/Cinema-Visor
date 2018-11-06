@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/television.png" />
+    <title>Cinema Visor</title>
+    <link rel="stylesheet" href="/style.css" type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js" ></script>
+    
+  </head>
+<body>
+    <div class="ovi">
+  <nav class="navbar navbar-default navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Cinema Visor</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+
+          <li><a href="/trending-all/1">Home<span class="sr-only">(current)</span></a></li>
+
+          <!-- <li><a href="#">Link</a></li> -->
+
+          <li class="dropdown">
+            <a href="/discover" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Discover
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="discover-movies" href="/discover-movies">Movies</a></li>
+              <li><a class="discover-tv-shows" href="/discover-tvshows">TV Shows</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trending
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              
+              <li><a class="trending-movies" href="/trending-movies/1">Movies</a></li>
+              <li><a class="trending-tv-shows" href="/trending-tvshows/1">TV Shows</a></li>
+              <li><a class="trending-people" href="/trending-people/1">People</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Movies
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="popular-movies" href="/movies/popular/1">Popular</a></li>
+              <li><a class="top-rated-movies" href="/movies/top-rated/1">Top Rated</a></li>
+              <li><a class="upcoming-movies" href="/movies/upcoming/1">Upcoming</a></li>
+              <li><a class="now-playing-movies" href="/movies/now-playing/1">Now Playing</a></li>
+            </ul>
+          </li>
+          
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TV Shows
+                <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a class="popular-tv-shows" href="/tvshows/popular/1">Popular</a></li>
+                  <li><a class="top-rated-tv-shows" href="/tvshows/toprated/1">Top Rated</a></li>
+                  <li><a class="on-tv-tv-shows" href="/tvshows/airing-today/1">On TV</a></li>
+                  <li><a class="airing-today-tv-shows" href="/tvshows/airing-now/1">Airing Today</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">People
+                  <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="popular people" href="/popular-people/1">Popular People</a></li>
+                </ul>
+              </li>
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if(user){ %>
+            <li><a href="/dashboard">DashBoard</a></li>
+          <% } else{ %>
+              <li><a href="/users/login">Login</a></li>
+          <li><a href="/users/register">Sign Up</a></li>
+         <% } %>
+         <li><a href="/discuss">Discuss</a></li>
+         <% if(user){ %>
+          <li class="dropdown">
+              
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">You
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/dashboard">View Profile</a></li>
+              
+         
+              <li role="separator" class="divider"></li>
+              <li><a href="/users/logout">Logout</a></li>
+            </ul>
+          </li>
+        <% } %>
+        </ul>
+
+
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+ 
+  <div class="container">

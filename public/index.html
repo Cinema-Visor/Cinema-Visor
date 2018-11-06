@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/television.png" />
+	<title>Cinema Visor</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style_main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+</head>
+
+<body>
+
+	<div id="landing-header">
+		<h1>
+			<span class="type"></span>
+		</h1>
+		<a href="/trending-movies/1" class="btn btn-lg btn-default">Discover Now!</a>
+	</div>
+
+	<ul class="slideshow">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js"></script>
+	<script text="text/javascript">
+		$(function () {
+			$(".type").typed({
+				strings:[
+					"Welcome to Cinema Visor",
+					"The Complete Movie Database",
+					"Search for Movies, TvShows and your favourite Actors"
+				],
+				typeSpeed:70,
+				backDelay:200,
+				loop:true
+			})
+		})
+	</script>
+
+</body>
+
+</html>

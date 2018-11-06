@@ -1,0 +1,66 @@
+
+<% include partials/header1.ejs %>
+
+<h1><a style="color: greenyellow ;display: block;" href="/newdiscussion"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add a new Discussion</a></h1>
+<div class="formdiv"><form class="form" action="/discussionbytitle" method="POST" >
+  <div class="search col-md-8 col-sm-8 col-xs-8">
+    <label class="sr-only" for="inlineFormInputName2">Name</label>
+    <input id="myinp" type="text" style="background:  black ; color:white" name="name"class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Discussion Title" required>
+  </div>
+
+  <div class="search col-md-2 col-sm-2 col-xs-2"><button type="submit" class="btn submitsearch">Search Discussions</button></div>
+  </form></div>
+
+
+
+
+
+
+
+<h1 style="color:white; margin-top:90px">Recent Discussions</h1>
+
+<% if(all==null){ %>
+
+ <% }else{ %>
+  <% all.forEach(function(discuss){ %>
+  <div  class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title"><%= discuss.title %> discussion started by-<%= discuss.username %></h2>
+    </div>
+    <div class="panel-body" >
+        
+      <h3  style="color: white  ; font-family: 'Roboto', sans-serif; font-size: 20px"><%= discuss.description %></h3>
+
+
+
+
+
+  
+      
+    </div>
+    
+  </div>
+
+  
+
+    
+   
+  
+    <% }) %>
+  
+
+
+
+<% } %>
+
+<style>
+    .panel-body
+    {
+          color: white;
+          background-color: black;
+          
+  
+    }
+    </style>
+
+<% include partials/footer1.ejs %>
